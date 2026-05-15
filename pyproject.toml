@@ -16,7 +16,6 @@ dependencies = [
     'sentencepiece>=0.1.99',
     'numpy>=1.21.3',
     'torch>=1.10.0',
-    'fairseq>=0.12.2',
 ]
 
 classifiers=[

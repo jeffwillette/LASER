@@ -24,9 +24,15 @@ from pathlib import Path
 import numpy as np
 import torch
 import torch.nn as nn
-from fairseq.data.dictionary import Dictionary
-from fairseq.models.transformer import Embedding, TransformerEncoder
-from fairseq.modules import LayerNorm
+
+try:
+    from fairseq.data.dictionary import Dictionary
+    from fairseq.models.transformer import Embedding, TransformerEncoder
+    from fairseq.modules import LayerNorm
+except ImportError:
+    class TransformerEncoder:
+        pass
+    Dictionary = Embedding = LayerNorm = None
 
 from laser_encoders.download_models import LaserModelDownloader
 from laser_encoders.language_list import LASER2_LANGUAGE, LASER3_LANGUAGE
